@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Объявления — Krisha</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="ads">
+  <nav class="nav">
+    <span class="brand">🏠 Krisha</span>
+    <a class="link" href="ads.html">Объявления</a>
+    <a class="link" href="profile.html">Мои объявления / Профиль</a>
+    <span class="spacer"></span>
+    <span class="user" id="userName"></span>
+    <a class="link" id="authLink" href="login.html">Войти</a>
+  </nav>
+  <div class="container">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <h1>Объявления о недвижимости</h1>
+      <button class="btn" id="createBtn">+ Подать объявление</button>
+    </div>
+    <form class="filters" id="filters">
+      <div class="field"><label>Город</label><select name="city"><option value="">Все города</option></select></div>
+      <div class="field"><label>Категория</label><select name="category"><option value="">Все категории</option></select></div>
+      <div class="field"><label>Комнат</label>
+        <select name="rooms">
+          <option value="">Все</option>
+          <option value="0">Студия</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4+</option>
+        </select>
+      </div>
+      <div class="field"><label>Цена от</label><input name="price_from" type="number"></div>
+      <div class="field"><label>Цена до</label><input name="price_to" type="number"></div>
+      <div class="field"><label>Сортировка</label>
+        <select name="sort">
+          <option value="">Новые сверху</option>
+          <option value="price_asc">Дешевле</option>
+          <option value="price_desc">Дороже</option>
+        </select>
+      </div>
+      <div class="field"><label>Поиск</label><input name="q" placeholder="Заголовок"></div>
+      <button class="btn" type="submit">Найти</button>
+    </form>
+    <div class="grid" id="grid"></div>
+  </div>
+
+  <!-- Модальное окно создания объявления -->
+  <div class="modal" id="modal">
+    <div class="modal-card">
+      <div class="modal-head">
+        <h2>Новое объявление</h2>
+        <button class="close-x" id="closeModal" type="button">&times;</button>
+      </div>
+      <div id="createMsg" class="msg"></div>
+      <form id="createForm">
+        <div class="field"><label>Категория</label><select name="category_id" required></select></div>
+        <div class="field"><label>Заголовок</label><input name="title" required></div>
+        <div class="field"><label>Описание</label><textarea name="description"></textarea></div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <div class="field" style="flex:1;min-width:120px"><label>Цена (₸)</label><input name="price" type="number" min="1" required></div>
+          <div class="field" style="flex:1;min-width:100px"><label>Комнат</label><input name="rooms" type="number" min="0" value="1"></div>
+          <div class="field" style="flex:1;min-width:100px"><label>Площадь (м²)</label><input name="area" type="number" min="1" step="0.1" required></div>
+        </div>
+        <div class="field"><label>Город</label><input name="city" required></div>
+        <div class="field"><label>Фото (необязательно)</label><input type="file" name="image" accept=".jpg,.jpeg,.png"></div>
+        <button class="btn" type="submit" style="width:100%">Опубликовать</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

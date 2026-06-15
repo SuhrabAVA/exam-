@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Профиль — Kolesa</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="profile">
+  <nav class="nav">
+    <span class="brand">🚗 Kolesa</span>
+    <a class="link" href="cars.html">Объявления</a>
+    <a class="link" href="profile.html">Мои объявления / Профиль</a>
+    <span class="spacer"></span>
+    <span class="user" id="userName"></span>
+    <a class="link" id="authLink" href="login.html">Войти</a>
+  </nav>
+  <div class="container">
+    <div class="profile-head">
+      <img class="avatar" id="pAvatar" alt="">
+      <div>
+        <h2 id="pName" style="margin:0"></h2>
+        <div class="meta" id="pLogin" style="color:#666"></div>
+        <form id="avatarForm" style="margin-top:10px;display:flex;gap:8px;align-items:center">
+          <input type="file" name="avatar" accept=".jpg,.jpeg,.png" style="max-width:240px">
+          <button class="btn small" type="submit">Загрузить фото</button>
+        </form>
+        <div id="avatarMsg" class="msg"></div>
+      </div>
+    </div>
+
+    <h2>Подать объявление</h2>
+    <form id="addForm" class="filters" style="flex-direction:column;align-items:stretch">
+      <div class="row" style="display:flex;gap:12px;flex-wrap:wrap">
+        <div class="field" style="flex:1;min-width:140px"><label>Марка</label><input name="brand" required></div>
+        <div class="field" style="flex:1;min-width:140px"><label>Модель</label><input name="model" required></div>
+        <div class="field" style="flex:1;min-width:100px"><label>Год</label><input name="year" type="number" required></div>
+        <div class="field" style="flex:1;min-width:140px"><label>Цена (₸)</label><input name="price" type="number" min="1" required></div>
+      </div>
+      <div class="field"><label>Описание</label><textarea name="description"></textarea></div>
+      <div class="field"><label>Фото авто (необязательно)</label><input type="file" name="image" accept=".jpg,.jpeg,.png"></div>
+      <button class="btn" type="submit">Добавить объявление</button>
+      <div id="addMsg" class="msg"></div>
+    </form>
+
+    <h2>Мои объявления</h2>
+    <div id="ads"></div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

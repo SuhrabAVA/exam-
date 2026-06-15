@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Объявления — Kolesa</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="cars">
+  <nav class="nav">
+    <span class="brand">🚗 Kolesa</span>
+    <a class="link" href="cars.html">Объявления</a>
+    <a class="link" href="profile.html">Мои объявления / Профиль</a>
+    <span class="spacer"></span>
+    <span class="user" id="userName"></span>
+    <a class="link" id="authLink" href="login.html">Войти</a>
+  </nav>
+  <div class="container">
+    <h1>Объявления о продаже авто</h1>
+    <form class="filters" id="filters">
+      <div class="field">
+        <label>Марка</label>
+        <input name="brand" placeholder="Toyota, BMW…">
+      </div>
+      <div class="field">
+        <label>Год от</label>
+        <input name="year_from" type="number" placeholder="2010">
+      </div>
+      <div class="field">
+        <label>Год до</label>
+        <input name="year_to" type="number" placeholder="2024">
+      </div>
+      <div class="field">
+        <label>Сортировка по цене</label>
+        <select name="sort">
+          <option value="">По умолчанию</option>
+          <option value="price_asc">Дешевле</option>
+          <option value="price_desc">Дороже</option>
+        </select>
+      </div>
+      <button class="btn" type="submit">Найти</button>
+    </form>
+    <div class="grid" id="grid"></div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# Виртуальное окружение (НЕ коммитить! у каждого своё)
+venv/
+.venv/
+env/
+
+# Django
+*.log
+db.sqlite3
+local_settings.py
+
+# Переменные окружения с паролями
+.env
+
+# Загруженные пользователями файлы (папку оставляем через .gitkeep)
+media/*
+!media/.gitkeep
+
+# ОС и редакторы
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

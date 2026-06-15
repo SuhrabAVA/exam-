@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Номера — Hotel</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="rooms">
+  <nav class="nav">
+    <span class="brand">🏨 Hotel</span>
+    <a class="link" href="rooms.html">Номера</a>
+    <a class="link" href="profile.html">Мои бронирования / Профиль</a>
+    <span class="spacer"></span>
+    <span class="user" id="userName"></span>
+    <a class="link" id="authLink" href="login.html">Войти</a>
+  </nav>
+  <div class="container">
+    <h1>Доступные номера</h1>
+    <form class="filters" id="filters">
+      <div class="field">
+        <label>Тип номера</label>
+        <select name="type">
+          <option value="">Все типы</option>
+          <option value="1">Стандарт</option>
+          <option value="2">Делюкс</option>
+          <option value="3">Люкс</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Вместимость</label>
+        <select name="capacity">
+          <option value="">Любая</option>
+          <option value="1">1 чел.</option>
+          <option value="2">2 чел.</option>
+          <option value="3">3 чел.</option>
+          <option value="4">4 чел.</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Сортировка по цене</label>
+        <select name="sort">
+          <option value="">По умолчанию</option>
+          <option value="price_asc">Дешевле</option>
+          <option value="price_desc">Дороже</option>
+        </select>
+      </div>
+      <button class="btn" type="submit">Найти</button>
+    </form>
+    <div class="grid" id="grid"></div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,412 @@
+/* Вариант 3 — «Mono»: минимализм, чёрно-белая палитра, острые углы */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    background: #ffffff;
+    color: #111111;
+}
+
+a {
+    text-decoration: none;
+    color: #111111;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* Меню навигации */
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    background: #ffffff;
+    color: #111111;
+    padding: 16px 28px;
+    border-bottom: 2px solid #111111;
+}
+
+.nav .brand {
+    font-weight: 800;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.nav a.link {
+    color: #111111;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+}
+
+.nav a.link:hover {
+    text-decoration: underline;
+}
+
+.nav .spacer {
+    flex: 1;
+}
+
+.nav .user {
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #555;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 28px 20px;
+}
+
+h1, h2 {
+    margin: 0 0 20px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+/* Кнопки */
+.btn {
+    background: #111111;
+    color: #ffffff;
+    border: 2px solid #111111;
+    padding: 10px 18px;
+    border-radius: 0;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: background 0.12s, color 0.12s;
+}
+
+.btn:hover {
+    background: #ffffff;
+    color: #111111;
+}
+
+.btn.secondary {
+    background: #ffffff;
+    color: #111111;
+}
+
+.btn.danger {
+    background: #ffffff;
+    color: #111111;
+    border-color: #111111;
+}
+
+.btn.danger:hover {
+    background: #111111;
+    color: #ffffff;
+}
+
+.btn.small {
+    padding: 7px 12px;
+    font-size: 11px;
+}
+
+/* Формы */
+.field {
+    margin-bottom: 16px;
+}
+
+.field label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #555;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #111111;
+    border-radius: 0;
+    font-size: 14px;
+    font-family: inherit;
+    background: #ffffff;
+    color: #111111;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: 2px solid #111111;
+    outline-offset: -1px;
+}
+
+textarea {
+    min-height: 64px;
+    resize: vertical;
+}
+
+/* Карточки авторизации */
+.auth-card {
+    max-width: 360px;
+    margin: 70px auto;
+    background: #ffffff;
+    padding: 30px;
+    border: 2px solid #111111;
+    border-radius: 0;
+}
+
+.hint {
+    margin-top: 18px;
+    text-align: center;
+    font-size: 13px;
+    color: #555;
+}
+
+.hint a {
+    color: #111111;
+    text-decoration: underline;
+}
+
+/* Сообщения */
+.msg {
+    padding: 10px 12px;
+    border-radius: 0;
+    margin-bottom: 14px;
+    font-size: 13px;
+    display: none;
+    border: 1px solid #111111;
+}
+
+.msg.error {
+    display: block;
+    background: #ffffff;
+    color: #111111;
+    border-left: 4px solid #111111;
+}
+
+.msg.success {
+    display: block;
+    background: #111111;
+    color: #ffffff;
+}
+
+/* Фильтры */
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: end;
+    background: #ffffff;
+    padding: 20px;
+    border: 1px solid #111111;
+    border-radius: 0;
+    margin-bottom: 28px;
+}
+
+.filters .field {
+    margin: 0;
+    flex: 1;
+    min-width: 140px;
+}
+
+/* Сетка карточек */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 1px;
+    background: #111111;
+    border: 1px solid #111111;
+}
+
+.card {
+    background: #ffffff;
+    border: none;
+    border-radius: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.card .poster {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    background: #ededed;
+    filter: grayscale(100%);
+    transition: filter 0.2s;
+}
+
+.card:hover .poster {
+    filter: grayscale(0%);
+}
+
+.card .body {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+
+.card .title {
+    font-weight: 800;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.card .meta {
+    font-size: 13px;
+    color: #555;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.tag {
+    background: #ffffff;
+    border: 1px solid #111111;
+    border-radius: 0;
+    padding: 2px 9px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.price {
+    font-size: 18px;
+    font-weight: 800;
+    color: #111111;
+}
+
+.buy-form {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-top: auto;
+}
+
+.buy-form .row {
+    display: flex;
+    gap: 7px;
+}
+
+/* Профиль */
+.profile-head {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    background: #ffffff;
+    padding: 20px;
+    border: 1px solid #111111;
+    border-radius: 0;
+    margin-bottom: 28px;
+}
+
+.avatar {
+    width: 84px;
+    height: 84px;
+    border-radius: 0;
+    object-fit: cover;
+    background: #ededed;
+    border: 2px solid #111111;
+    filter: grayscale(100%);
+}
+
+.list-item {
+    background: #ffffff;
+    border: 1px solid #111111;
+    border-radius: 0;
+    padding: 14px;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.list-item img {
+    width: 70px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 0;
+    filter: grayscale(100%);
+}
+
+.list-item .info {
+    flex: 1;
+}
+
+.badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 0;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: 1px solid #111111;
+}
+
+.badge.active {
+    background: #111111;
+    color: #ffffff;
+}
+
+.badge.refunded, .badge.cancelled, .badge.withdrawn, .badge.sold {
+    background: #ffffff;
+    color: #111111;
+}
+
+.empty {
+    color: #999;
+    text-align: center;
+    padding: 40px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 13px;
+}
+
+/* Модальное окно */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 100;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 40px 16px;
+    overflow: auto;
+}
+
+.modal .modal-card {
+    background: #ffffff;
+    border: 2px solid #111111;
+    border-radius: 0;
+    max-width: 500px;
+    width: 100%;
+    padding: 24px;
+}
+
+.modal .modal-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.modal .modal-head h2 {
+    margin: 0;
+}
+
+.modal .close-x {
+    cursor: pointer;
+    color: #111111;
+    font-size: 24px;
+    background: none;
+    border: none;
+}

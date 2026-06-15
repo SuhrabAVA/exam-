@@ -1,0 +1,402 @@
+/* Тема оформления: Luxury Gold (роскошь, кремовый + золото). Изменён только дизайн. */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    background: #f6f1e7;
+    color: #2e2620;
+}
+
+a {
+    text-decoration: none;
+    color: #a9893f;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* Меню навигации */
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    background: #2e2620;
+    color: #f6f1e7;
+    padding: 16px 28px;
+    border-bottom: 3px solid #c9a44c;
+}
+
+.nav .brand {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 700;
+    font-size: 23px;
+    letter-spacing: 1px;
+    color: #d8b65f;
+}
+
+.nav a.link {
+    color: #e8ddc8;
+    letter-spacing: 0.3px;
+    transition: color 0.15s;
+}
+
+.nav a.link:hover {
+    color: #d8b65f;
+}
+
+.nav .spacer {
+    flex: 1;
+}
+
+.nav .user {
+    font-size: 14px;
+    color: #c3b59a;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 28px 20px;
+}
+
+h1, h2 {
+    margin: 0 0 18px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 700;
+    color: #3a2f25;
+}
+
+/* Кнопки */
+.btn {
+    background: #c9a44c;
+    color: #2e2620;
+    border: none;
+    padding: 11px 20px;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: background 0.15s;
+}
+
+.btn:hover {
+    background: #b08d36;
+}
+
+.btn.secondary {
+    background: #e6ddcb;
+    color: #3a2f25;
+}
+
+.btn.danger {
+    background: #9c3b32;
+    color: #f6f1e7;
+}
+
+.btn.small {
+    padding: 7px 13px;
+    font-size: 12px;
+}
+
+/* Формы */
+.field {
+    margin-bottom: 13px;
+}
+
+.field label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 13px;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    color: #8a7a62;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #d6c9ad;
+    border-radius: 2px;
+    font-size: 14px;
+    font-family: inherit;
+    background: #fffdf8;
+    color: #2e2620;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: #c9a44c;
+    box-shadow: 0 0 0 3px rgba(201, 164, 76, 0.18);
+}
+
+textarea {
+    min-height: 60px;
+    resize: vertical;
+}
+
+/* Карточки авторизации */
+.auth-card {
+    max-width: 380px;
+    margin: 60px auto;
+    background: #fffdf8;
+    padding: 32px;
+    border: 1px solid #e3d7bd;
+    border-top: 4px solid #c9a44c;
+    border-radius: 3px;
+    box-shadow: 0 14px 40px rgba(46, 38, 32, 0.12);
+}
+
+.hint {
+    margin-top: 16px;
+    text-align: center;
+    font-size: 14px;
+    color: #8a7a62;
+}
+
+/* Сообщения */
+.msg {
+    padding: 9px 12px;
+    border-radius: 2px;
+    margin-bottom: 12px;
+    font-size: 14px;
+    display: none;
+}
+
+.msg.error {
+    display: block;
+    background: #f7e3e0;
+    color: #8c322a;
+    border-left: 3px solid #9c3b32;
+}
+
+.msg.success {
+    display: block;
+    background: #eef0e0;
+    color: #5a6b2e;
+    border-left: 3px solid #7d9036;
+}
+
+/* Фильтры */
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items: end;
+    background: #fffdf8;
+    padding: 20px;
+    border: 1px solid #e3d7bd;
+    border-radius: 3px;
+    margin-bottom: 24px;
+    box-shadow: 0 6px 20px rgba(46, 38, 32, 0.06);
+}
+
+.filters .field {
+    margin: 0;
+    flex: 1;
+    min-width: 140px;
+}
+
+/* Сетка карточек */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 22px;
+}
+
+.card {
+    background: #fffdf8;
+    border: 1px solid #e3d7bd;
+    border-radius: 3px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 6px 18px rgba(46, 38, 32, 0.07);
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 34px rgba(46, 38, 32, 0.16);
+}
+
+.card .poster {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    background: #ece3d2;
+}
+
+.card .body {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+
+.card .title {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 700;
+    font-size: 17px;
+    color: #3a2f25;
+}
+
+.card .meta {
+    font-size: 13px;
+    color: #8a7a62;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.tag {
+    background: #f3ead6;
+    border: 1px solid #ddcba0;
+    border-radius: 2px;
+    padding: 3px 10px;
+    font-size: 12px;
+    letter-spacing: 0.3px;
+    color: #7a6a4f;
+}
+
+.price {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: #a9893f;
+}
+
+.buy-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: auto;
+}
+
+.buy-form .row {
+    display: flex;
+    gap: 8px;
+}
+
+/* Профиль */
+.profile-head {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    background: #fffdf8;
+    padding: 22px;
+    border: 1px solid #e3d7bd;
+    border-top: 4px solid #c9a44c;
+    border-radius: 3px;
+    margin-bottom: 24px;
+    box-shadow: 0 6px 20px rgba(46, 38, 32, 0.06);
+}
+
+.avatar {
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #ece3d2;
+    border: 3px solid #c9a44c;
+}
+
+.list-item {
+    background: #fffdf8;
+    border: 1px solid #e3d7bd;
+    border-radius: 3px;
+    padding: 14px;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    margin-bottom: 12px;
+    box-shadow: 0 4px 14px rgba(46, 38, 32, 0.05);
+}
+
+.list-item img {
+    width: 70px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 2px;
+}
+
+.list-item .info {
+    flex: 1;
+}
+
+.badge {
+    display: inline-block;
+    padding: 3px 11px;
+    border-radius: 2px;
+    font-size: 12px;
+    letter-spacing: 0.3px;
+}
+
+.badge.active {
+    background: #eef0e0;
+    color: #5a6b2e;
+    border: 1px solid #c5cf9a;
+}
+
+.badge.refunded, .badge.cancelled, .badge.withdrawn, .badge.sold {
+    background: #f7e3e0;
+    color: #8c322a;
+    border: 1px solid #e0b3ac;
+}
+
+.empty {
+    color: #a4977f;
+    text-align: center;
+    padding: 40px;
+    font-style: italic;
+}
+
+/* Модальное окно (используется в Krisha App) */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(46, 38, 32, 0.55);
+    z-index: 100;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 40px 16px;
+    overflow: auto;
+}
+
+.modal .modal-card {
+    background: #fffdf8;
+    border-top: 4px solid #c9a44c;
+    border-radius: 3px;
+    max-width: 500px;
+    width: 100%;
+    padding: 26px;
+    box-shadow: 0 24px 60px rgba(46, 38, 32, 0.3);
+}
+
+.modal .modal-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.modal .modal-head h2 {
+    margin: 0;
+}
+
+.modal .close-x {
+    cursor: pointer;
+    color: #a4977f;
+    font-size: 24px;
+    background: none;
+    border: none;
+}

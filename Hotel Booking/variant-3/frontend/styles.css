@@ -1,0 +1,397 @@
+/* Тема оформления: Minimal Mono (минимализм, монохром). Изменён только дизайн. */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Inter", "Segoe UI", Helvetica, Arial, sans-serif;
+    background: #ffffff;
+    color: #111111;
+}
+
+a {
+    text-decoration: none;
+    color: #111111;
+    border-bottom: 1px solid #111111;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* Меню навигации */
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    background: #ffffff;
+    color: #111111;
+    padding: 18px 28px;
+    border-bottom: 1px solid #111111;
+}
+
+.nav .brand {
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: -0.5px;
+    color: #111111;
+}
+
+.nav a.link {
+    color: #111111;
+    font-size: 14px;
+    border-bottom: none;
+}
+
+.nav a.link:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.nav .spacer {
+    flex: 1;
+}
+
+.nav .user {
+    font-size: 13px;
+    color: #888888;
+}
+
+.container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 40px 24px;
+}
+
+h1, h2 {
+    margin: 0 0 22px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+/* Кнопки */
+.btn {
+    background: #111111;
+    color: #ffffff;
+    border: 1px solid #111111;
+    padding: 10px 18px;
+    border-radius: 0;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.12s, color 0.12s;
+}
+
+.btn:hover {
+    background: #ffffff;
+    color: #111111;
+}
+
+.btn.secondary {
+    background: #ffffff;
+    color: #111111;
+}
+
+.btn.danger {
+    background: #ffffff;
+    color: #111111;
+    border-color: #111111;
+}
+
+.btn.small {
+    padding: 6px 12px;
+    font-size: 13px;
+}
+
+/* Формы */
+.field {
+    margin-bottom: 16px;
+}
+
+.field label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 12px;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    color: #888888;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px 0;
+    border: none;
+    border-bottom: 1px solid #111111;
+    border-radius: 0;
+    font-size: 15px;
+    font-family: inherit;
+    background: transparent;
+    color: #111111;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-bottom-width: 2px;
+}
+
+textarea {
+    min-height: 60px;
+    resize: vertical;
+    border: 1px solid #111111;
+    padding: 10px;
+}
+
+/* Карточки авторизации */
+.auth-card {
+    max-width: 360px;
+    margin: 80px auto;
+    background: #ffffff;
+    padding: 32px;
+    border: 1px solid #111111;
+    border-radius: 0;
+}
+
+.hint {
+    margin-top: 18px;
+    text-align: center;
+    font-size: 14px;
+    color: #888888;
+}
+
+/* Сообщения */
+.msg {
+    padding: 10px 12px;
+    border-radius: 0;
+    margin-bottom: 14px;
+    font-size: 14px;
+    display: none;
+}
+
+.msg.error {
+    display: block;
+    background: #ffffff;
+    color: #111111;
+    border: 1px solid #111111;
+    border-left-width: 4px;
+}
+
+.msg.success {
+    display: block;
+    background: #111111;
+    color: #ffffff;
+}
+
+/* Фильтры */
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    align-items: end;
+    background: #ffffff;
+    padding: 0 0 24px;
+    border: none;
+    border-bottom: 1px solid #111111;
+    border-radius: 0;
+    margin-bottom: 32px;
+}
+
+.filters .field {
+    margin: 0;
+    flex: 1;
+    min-width: 140px;
+}
+
+/* Сетка карточек */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 24px;
+}
+
+.card {
+    background: #ffffff;
+    border: 1px solid #111111;
+    border-radius: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.card .poster {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    background: #f0f0f0;
+    filter: grayscale(100%);
+    transition: filter 0.25s;
+}
+
+.card:hover .poster {
+    filter: grayscale(0%);
+}
+
+.card .body {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    flex: 1;
+}
+
+.card .title {
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: -0.3px;
+}
+
+.card .meta {
+    font-size: 13px;
+    color: #888888;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.tag {
+    background: #ffffff;
+    border: 1px solid #111111;
+    border-radius: 0;
+    padding: 2px 9px;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #111111;
+}
+
+.price {
+    font-size: 17px;
+    font-weight: 700;
+    color: #111111;
+}
+
+.buy-form {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    margin-top: auto;
+}
+
+.buy-form .row {
+    display: flex;
+    gap: 9px;
+}
+
+/* Профиль */
+.profile-head {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    background: #ffffff;
+    padding: 0 0 24px;
+    border: none;
+    border-bottom: 1px solid #111111;
+    border-radius: 0;
+    margin-bottom: 32px;
+}
+
+.avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 0;
+    object-fit: cover;
+    background: #f0f0f0;
+    border: 1px solid #111111;
+    filter: grayscale(100%);
+}
+
+.list-item {
+    background: #ffffff;
+    border: 1px solid #111111;
+    border-radius: 0;
+    padding: 14px;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.list-item img {
+    width: 70px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 0;
+    filter: grayscale(100%);
+}
+
+.list-item .info {
+    flex: 1;
+}
+
+.badge {
+    display: inline-block;
+    padding: 2px 9px;
+    border-radius: 0;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.badge.active {
+    background: #111111;
+    color: #ffffff;
+}
+
+.badge.refunded, .badge.cancelled, .badge.withdrawn, .badge.sold {
+    background: #ffffff;
+    color: #111111;
+    border: 1px solid #111111;
+}
+
+.empty {
+    color: #999999;
+    text-align: center;
+    padding: 48px;
+}
+
+/* Модальное окно (используется в Krisha App) */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(17, 17, 17, 0.55);
+    z-index: 100;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 40px 16px;
+    overflow: auto;
+}
+
+.modal .modal-card {
+    background: #ffffff;
+    border: 1px solid #111111;
+    border-radius: 0;
+    max-width: 500px;
+    width: 100%;
+    padding: 26px;
+}
+
+.modal .modal-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.modal .modal-head h2 {
+    margin: 0;
+}
+
+.modal .close-x {
+    cursor: pointer;
+    color: #111111;
+    font-size: 24px;
+    background: none;
+    border: none;
+}

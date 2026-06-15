@@ -1,0 +1,443 @@
+/* Дизайн-вариант 4 — «Aurora»: яркие градиенты, крупные скругления,
+   стеклянные панели, современный вид. Меняется только оформление. */
+
+:root {
+    --bg: #f5f6ff;
+    --panel: #ffffff;
+    --ink: #1c1530;
+    --muted: #6f6790;
+    --line: #e9e6f7;
+    --violet: #7c3aed;
+    --violet-2: #a855f7;
+    --pink: #ec4899;
+    --cyan: #06b6d4;
+    --danger: #e11d6b;
+    --radius: 18px;
+    --grad: linear-gradient(135deg, #7c3aed 0%, #c026d3 50%, #ec4899 100%);
+    --grad-soft: linear-gradient(135deg, #8b5cf6, #06b6d4);
+    --shadow: 0 14px 40px rgba(124, 58, 237, 0.18);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", system-ui, Arial, sans-serif;
+    background:
+        radial-gradient(900px 500px at 100% -5%, rgba(236, 72, 153, 0.14), transparent 55%),
+        radial-gradient(900px 500px at -10% 0%, rgba(6, 182, 212, 0.14), transparent 55%),
+        var(--bg);
+    color: var(--ink);
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    color: var(--violet);
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* Меню навигации */
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    background: var(--grad);
+    color: #fff;
+    padding: 15px 28px;
+    box-shadow: 0 8px 24px rgba(124, 58, 237, 0.28);
+}
+
+.nav .brand {
+    font-weight: 800;
+    font-size: 21px;
+    color: #fff;
+    letter-spacing: 0.3px;
+}
+
+.nav a.link {
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.nav a.link:hover {
+    color: #fff;
+    text-shadow: 0 0 14px rgba(255, 255, 255, 0.6);
+}
+
+.nav .spacer {
+    flex: 1;
+}
+
+.nav .user {
+    font-size: 14px;
+    color: #fff;
+}
+
+.container {
+    max-width: 1060px;
+    margin: 0 auto;
+    padding: 28px 20px 64px;
+}
+
+h1, h2 {
+    margin: 0 0 18px;
+    font-weight: 800;
+    color: var(--ink);
+    letter-spacing: 0.2px;
+}
+
+/* Кнопки */
+.btn {
+    background: var(--grad);
+    color: #fff;
+    border: none;
+    padding: 11px 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 700;
+    transition: transform 0.13s, box-shadow 0.13s, filter 0.13s;
+    box-shadow: 0 8px 20px rgba(192, 38, 211, 0.30);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    filter: saturate(1.1);
+    box-shadow: 0 12px 26px rgba(192, 38, 211, 0.40);
+}
+
+.btn.secondary {
+    background: #fff;
+    color: var(--violet);
+    border: 1.5px solid var(--line);
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.08);
+}
+
+.btn.secondary:hover {
+    border-color: var(--violet-2);
+    color: var(--violet-2);
+    box-shadow: 0 8px 18px rgba(124, 58, 237, 0.16);
+}
+
+.btn.danger {
+    background: linear-gradient(135deg, #f43f5e, #e11d6b);
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(225, 29, 107, 0.30);
+}
+
+.btn.small {
+    padding: 7px 13px;
+    font-size: 13px;
+    border-radius: 10px;
+}
+
+/* Формы */
+.field {
+    margin-bottom: 14px;
+}
+
+.field label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 600;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1.5px solid var(--line);
+    border-radius: 12px;
+    font-size: 14px;
+    font-family: inherit;
+    background: #fff;
+    color: var(--ink);
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--violet-2);
+    box-shadow: 0 0 0 4px rgba(168, 85, 247, 0.16);
+}
+
+textarea {
+    min-height: 66px;
+    resize: vertical;
+}
+
+/* Карточки авторизации */
+.auth-card {
+    max-width: 380px;
+    margin: 70px auto;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 22px;
+    box-shadow: var(--shadow);
+}
+
+.hint {
+    margin-top: 16px;
+    text-align: center;
+    font-size: 14px;
+    color: var(--muted);
+}
+
+/* Сообщения */
+.msg {
+    padding: 10px 14px;
+    border-radius: 12px;
+    margin-bottom: 14px;
+    font-size: 14px;
+    display: none;
+}
+
+.msg.error {
+    display: block;
+    background: #fde7f1;
+    color: #b1145a;
+    border: 1px solid #f7c4dc;
+}
+
+.msg.success {
+    display: block;
+    background: #eafaf3;
+    color: #0f8a5f;
+    border: 1px solid #c5efdd;
+}
+
+/* Фильтры */
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items: end;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: var(--radius);
+    margin-bottom: 26px;
+    box-shadow: var(--shadow);
+}
+
+.filters .field {
+    margin: 0;
+    flex: 1;
+    min-width: 140px;
+}
+
+/* Сетка карточек */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 22px;
+}
+
+.card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 8px 24px rgba(124, 58, 237, 0.10);
+    transition: transform 0.16s, box-shadow 0.16s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 22px 44px rgba(124, 58, 237, 0.22);
+}
+
+.card .poster {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    background: #f0edfb;
+}
+
+.card .body {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+
+.card .title {
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--ink);
+}
+
+.card .meta {
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.tag {
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.10), rgba(236, 72, 153, 0.10));
+    border: 1px solid rgba(168, 85, 247, 0.30);
+    color: #7c3aed;
+    border-radius: 999px;
+    padding: 3px 11px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.price {
+    font-size: 19px;
+    font-weight: 800;
+    background: var(--grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: var(--violet);
+}
+
+.buy-form {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-top: auto;
+}
+
+.buy-form .row {
+    display: flex;
+    gap: 7px;
+}
+
+/* Профиль */
+.profile-head {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    background: var(--panel);
+    padding: 20px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    margin-bottom: 24px;
+    box-shadow: var(--shadow);
+}
+
+.avatar {
+    width: 86px;
+    height: 86px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #f0edfb;
+    border: 3px solid transparent;
+    background-image: linear-gradient(#f0edfb, #f0edfb), var(--grad);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+}
+
+.list-item {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 14px;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    margin-bottom: 12px;
+    box-shadow: 0 6px 18px rgba(124, 58, 237, 0.08);
+}
+
+.list-item img {
+    width: 70px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.list-item .info {
+    flex: 1;
+}
+
+.badge {
+    display: inline-block;
+    padding: 3px 11px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.badge.active {
+    background: #eafaf3;
+    color: #0f8a5f;
+}
+
+.badge.refunded, .badge.cancelled, .badge.withdrawn, .badge.sold {
+    background: #fde7f1;
+    color: #b1145a;
+}
+
+.empty {
+    color: var(--muted);
+    text-align: center;
+    padding: 42px;
+}
+
+/* Модальное окно */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(28, 21, 48, 0.55);
+    backdrop-filter: blur(5px);
+    z-index: 100;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 44px 16px;
+    overflow: auto;
+}
+
+.modal .modal-card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    max-width: 520px;
+    width: 100%;
+    padding: 26px;
+    box-shadow: 0 26px 60px rgba(124, 58, 237, 0.35);
+}
+
+.modal .modal-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.modal .modal-head h2 {
+    margin: 0;
+}
+
+.modal .close-x {
+    cursor: pointer;
+    color: var(--muted);
+    font-size: 24px;
+    background: none;
+    border: none;
+    transition: color 0.15s;
+}
+
+.modal .close-x:hover {
+    color: var(--violet);
+}
