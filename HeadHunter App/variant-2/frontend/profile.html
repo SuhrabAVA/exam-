@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Профиль — HeadHunter</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="profile">
+  <nav class="nav">
+    <span class="brand">💼 HeadHunter</span>
+    <a class="link" href="vacancies.html">Вакансии</a>
+    <a class="link" href="profile.html">Мои отклики / Профиль</a>
+    <span class="spacer"></span>
+    <span class="user" id="userName"></span>
+    <a class="link" id="authLink" href="login.html">Войти</a>
+  </nav>
+  <div class="container">
+    <div class="profile-head">
+      <div>
+        <h2 id="pName" style="margin:0"></h2>
+        <div class="meta" id="pLogin" style="color:#666"></div>
+      </div>
+    </div>
+    <h2>Мои отклики</h2>
+    <div id="applications"></div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

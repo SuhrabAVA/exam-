@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Профиль — Cinema</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="profile">
+  <nav class="nav">
+    <span class="brand">🎬 Cinema</span>
+    <a class="link" href="movies.html">Афиша</a>
+    <a class="link" href="profile.html">Мои билеты / Профиль</a>
+    <span class="spacer"></span>
+    <span class="user" id="userName"></span>
+    <a class="link" id="authLink" href="login.html">Войти</a>
+  </nav>
+  <div class="container">
+    <div class="profile-head">
+      <img class="avatar" id="pAvatar" alt="">
+      <div>
+        <h2 id="pName" style="margin:0"></h2>
+        <div class="meta" id="pLogin" style="color:#666"></div>
+        <form id="avatarForm" style="margin-top:10px;display:flex;gap:8px;align-items:center">
+          <input type="file" name="avatar" accept=".jpg,.jpeg,.png" style="max-width:240px">
+          <button class="btn small" type="submit">Загрузить фото</button>
+        </form>
+        <div id="avatarMsg" class="msg"></div>
+      </div>
+    </div>
+    <h2>Мои билеты</h2>
+    <div id="tickets"></div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

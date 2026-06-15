@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Регистрация — HeadHunter</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="register">
+  <div class="auth-card">
+    <h1>Регистрация</h1>
+    <div id="msg" class="msg"></div>
+    <form id="form">
+      <div class="field"><label>ФИО</label><input name="full_name" required></div>
+      <div class="field"><label>Логин</label><input name="username" required></div>
+      <div class="field"><label>Пароль</label><input name="password" type="password" required></div>
+      <button class="btn" type="submit" style="width:100%">Зарегистрироваться</button>
+    </form>
+    <div class="hint">Уже есть аккаунт? <a href="login.html" style="color:#2d6cdf">Войти</a></div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

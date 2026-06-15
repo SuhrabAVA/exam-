@@ -1,0 +1,413 @@
+/* Variant 4 — Soft Neumorphism. Изменено только оформление; разметка, классы и логика прежние. */
+
+:root {
+    --bg: #e4e9f0;
+    --text: #4a5568;
+    --muted: #8a93a6;
+    --accent: #6d7cff;
+    --accent-dark: #5566f0;
+    --light: #ffffff;
+    --shadow: #bcc4d4;
+    --out: -6px -6px 14px var(--light), 6px 6px 14px var(--shadow);
+    --out-sm: -4px -4px 9px var(--light), 4px 4px 9px var(--shadow);
+    --in: inset -4px -4px 8px var(--light), inset 4px 4px 8px var(--shadow);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+}
+
+a {
+    text-decoration: none;
+    color: var(--accent);
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* Меню навигации */
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: var(--bg);
+    color: var(--text);
+    padding: 16px 26px;
+    box-shadow: var(--out-sm);
+    position: relative;
+    z-index: 50;
+}
+
+.nav .brand {
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--accent);
+}
+
+.nav a.link {
+    color: var(--text);
+    font-weight: 600;
+}
+
+.nav a.link:hover {
+    color: var(--accent);
+}
+
+.nav .spacer {
+    flex: 1;
+}
+
+.nav .user {
+    font-size: 14px;
+    color: var(--muted);
+}
+
+.container {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+h1, h2 {
+    margin: 0 0 22px;
+    font-weight: 700;
+    color: #3c4658;
+}
+
+/* Кнопки */
+.btn {
+    background: var(--bg);
+    color: var(--accent);
+    border: none;
+    padding: 11px 20px;
+    border-radius: 14px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 700;
+    box-shadow: var(--out-sm);
+    transition: box-shadow 0.15s ease, color 0.15s ease;
+}
+
+.btn:hover {
+    color: var(--accent-dark);
+}
+
+.btn:active {
+    box-shadow: var(--in);
+}
+
+.btn.secondary {
+    color: var(--muted);
+}
+
+.btn.danger {
+    color: #e06a6a;
+}
+
+.btn.small {
+    padding: 8px 14px;
+    font-size: 13px;
+    border-radius: 11px;
+}
+
+/* Формы */
+.field {
+    margin-bottom: 16px;
+}
+
+.field label {
+    display: block;
+    margin-bottom: 7px;
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 600;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 11px 14px;
+    background: var(--bg);
+    border: none;
+    border-radius: 12px;
+    font-size: 14px;
+    font-family: inherit;
+    color: var(--text);
+    box-shadow: var(--in);
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+}
+
+textarea {
+    min-height: 60px;
+    resize: vertical;
+}
+
+/* Карточки авторизации */
+.auth-card {
+    max-width: 380px;
+    margin: 70px auto;
+    background: var(--bg);
+    padding: 32px;
+    border: none;
+    border-radius: 24px;
+    box-shadow: var(--out);
+}
+
+.hint {
+    margin-top: 18px;
+    text-align: center;
+    font-size: 14px;
+    color: var(--muted);
+}
+
+.hint a {
+    color: var(--accent) !important;
+    font-weight: 600;
+}
+
+/* Сообщения */
+.msg {
+    padding: 10px 14px;
+    border-radius: 12px;
+    margin-bottom: 14px;
+    font-size: 14px;
+    display: none;
+}
+
+.msg.error {
+    display: block;
+    color: #d05a5a;
+    box-shadow: var(--in);
+}
+
+.msg.success {
+    display: block;
+    color: #3aa776;
+    box-shadow: var(--in);
+}
+
+/* Фильтры */
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: end;
+    background: var(--bg);
+    padding: 20px;
+    border: none;
+    border-radius: 20px;
+    box-shadow: var(--out);
+    margin-bottom: 26px;
+}
+
+.filters .field {
+    margin: 0;
+    flex: 1;
+    min-width: 140px;
+}
+
+/* Сетка карточек */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 26px;
+}
+
+.card {
+    background: var(--bg);
+    border: none;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--out);
+    transition: transform 0.15s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+}
+
+.card .poster {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    background: #d6dceb;
+}
+
+.card .body {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    flex: 1;
+}
+
+.card .title {
+    font-weight: 700;
+    font-size: 16px;
+    color: #3c4658;
+}
+
+.card .meta {
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tag {
+    background: var(--bg);
+    border: none;
+    border-radius: 999px;
+    padding: 4px 12px;
+    font-size: 12px;
+    color: var(--muted);
+    box-shadow: var(--out-sm);
+}
+
+.price {
+    font-size: 19px;
+    font-weight: 800;
+    color: var(--accent);
+}
+
+.buy-form {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    margin-top: auto;
+}
+
+.buy-form .row {
+    display: flex;
+    gap: 9px;
+}
+
+/* Профиль */
+.profile-head {
+    display: flex;
+    gap: 22px;
+    align-items: center;
+    background: var(--bg);
+    padding: 22px;
+    border: none;
+    border-radius: 22px;
+    box-shadow: var(--out);
+    margin-bottom: 26px;
+}
+
+.avatar {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #d6dceb;
+    border: none;
+    box-shadow: var(--out-sm);
+}
+
+#pLogin {
+    color: var(--muted) !important;
+}
+
+.list-item {
+    background: var(--bg);
+    border: none;
+    border-radius: 18px;
+    padding: 16px;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    margin-bottom: 16px;
+    box-shadow: var(--out-sm);
+}
+
+.list-item img {
+    width: 68px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: var(--out-sm);
+}
+
+.list-item .info {
+    flex: 1;
+}
+
+.badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    box-shadow: var(--out-sm);
+}
+
+.badge.active {
+    color: #3aa776;
+}
+
+.badge.refunded, .badge.cancelled, .badge.withdrawn, .badge.sold {
+    color: #d05a5a;
+}
+
+.empty {
+    color: var(--muted);
+    text-align: center;
+    padding: 44px;
+}
+
+/* Модальное окно */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(60, 70, 88, 0.45);
+    z-index: 100;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 40px 16px;
+    overflow: auto;
+}
+
+.modal .modal-card {
+    background: var(--bg);
+    border: none;
+    border-radius: 22px;
+    max-width: 500px;
+    width: 100%;
+    padding: 24px;
+    box-shadow: var(--out);
+}
+
+.modal .modal-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.modal .modal-head h2 {
+    margin: 0;
+}
+
+.modal .close-x {
+    cursor: pointer;
+    color: var(--muted);
+    font-size: 24px;
+    background: none;
+    border: none;
+}

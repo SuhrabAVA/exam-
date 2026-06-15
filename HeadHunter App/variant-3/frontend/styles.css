@@ -1,0 +1,412 @@
+/* Вариант 3 — Purple Gradient. Изменён только дизайн (CSS), разметка и логика прежние. */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Poppins", "Segoe UI", system-ui, sans-serif;
+    background: #f4f1fb;
+    color: #2b2342;
+}
+
+a {
+    text-decoration: none;
+    color: #7c3aed;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* Меню навигации */
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    background: linear-gradient(135deg, #7c3aed 0%, #db2777 100%);
+    color: #fff;
+    padding: 16px 28px;
+    box-shadow: 0 4px 20px rgba(124, 58, 237, 0.25);
+}
+
+.nav .brand {
+    font-weight: 800;
+    font-size: 21px;
+    color: #fff;
+}
+
+.nav a.link {
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 14px;
+    padding: 7px 14px;
+    border-radius: 999px;
+    transition: background .15s;
+}
+
+.nav a.link:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.18);
+}
+
+.nav .spacer {
+    flex: 1;
+}
+
+.nav .user {
+    font-size: 14px;
+    color: #fff;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 32px 20px;
+}
+
+h1, h2 {
+    margin: 0 0 20px;
+    color: #3b2a5e;
+    font-weight: 700;
+}
+
+/* Кнопки */
+.btn {
+    background: linear-gradient(135deg, #7c3aed 0%, #db2777 100%);
+    color: #fff;
+    border: none;
+    padding: 11px 22px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 6px 16px rgba(124, 58, 237, 0.3);
+    transition: transform .12s, box-shadow .12s, filter .12s;
+}
+
+.btn:hover {
+    filter: brightness(1.07);
+    box-shadow: 0 8px 22px rgba(219, 39, 119, 0.35);
+    transform: translateY(-1px);
+}
+
+.btn.secondary {
+    background: #ffffff;
+    color: #7c3aed;
+    box-shadow: 0 3px 10px rgba(124, 58, 237, 0.12);
+}
+
+.btn.secondary:hover {
+    filter: none;
+    background: #f3eefe;
+}
+
+.btn.danger {
+    background: linear-gradient(135deg, #f43f5e 0%, #db2777 100%);
+    box-shadow: 0 6px 16px rgba(244, 63, 94, 0.3);
+}
+
+.btn.small {
+    padding: 8px 16px;
+    font-size: 13px;
+}
+
+/* Формы */
+.field {
+    margin-bottom: 14px;
+}
+
+.field label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 13px;
+    color: #6b5b8a;
+    font-weight: 600;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1.5px solid #e3dbf5;
+    border-radius: 14px;
+    font-size: 14px;
+    font-family: inherit;
+    background: #fff;
+    color: #2b2342;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: #a855f7;
+    box-shadow: 0 0 0 4px rgba(168, 85, 247, 0.14);
+}
+
+textarea {
+    min-height: 64px;
+    resize: vertical;
+}
+
+/* Карточки авторизации */
+.auth-card {
+    max-width: 380px;
+    margin: 70px auto;
+    background: #fff;
+    padding: 32px;
+    border: none;
+    border-radius: 24px;
+    box-shadow: 0 20px 50px rgba(124, 58, 237, 0.18);
+}
+
+.hint {
+    margin-top: 16px;
+    text-align: center;
+    font-size: 14px;
+    color: #6b5b8a;
+}
+
+.hint a {
+    color: #db2777 !important;
+    font-weight: 600;
+}
+
+/* Сообщения */
+.msg {
+    padding: 10px 14px;
+    border-radius: 14px;
+    margin-bottom: 12px;
+    font-size: 14px;
+    display: none;
+}
+
+.msg.error {
+    display: block;
+    background: #fdecf2;
+    color: #be185d;
+}
+
+.msg.success {
+    display: block;
+    background: #eef9f0;
+    color: #15803d;
+}
+
+/* Фильтры */
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items: end;
+    background: #fff;
+    padding: 20px;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(124, 58, 237, 0.1);
+    margin-bottom: 26px;
+}
+
+.filters .field {
+    margin: 0;
+    flex: 1;
+    min-width: 140px;
+}
+
+/* Сетка карточек */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 22px;
+}
+
+.card {
+    background: #fff;
+    border: none;
+    border-radius: 22px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 8px 26px rgba(124, 58, 237, 0.1);
+    transition: transform .18s, box-shadow .18s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 40px rgba(219, 39, 119, 0.18);
+}
+
+.card .poster {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    background: #efe7fb;
+}
+
+.card .body {
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+}
+
+.card .title {
+    font-weight: 700;
+    font-size: 16px;
+    color: #3b2a5e;
+}
+
+.card .meta {
+    font-size: 13px;
+    color: #7a6b96;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.tag {
+    background: linear-gradient(135deg, #f3eafe 0%, #fde8f2 100%);
+    border: none;
+    border-radius: 999px;
+    padding: 4px 12px;
+    font-size: 12px;
+    color: #9333ea;
+    font-weight: 600;
+}
+
+.price {
+    font-size: 19px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #7c3aed 0%, #db2777 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.buy-form {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    margin-top: auto;
+}
+
+.buy-form .row {
+    display: flex;
+    gap: 9px;
+}
+
+/* Профиль */
+.profile-head {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    background: linear-gradient(135deg, #fff 0%, #faf5ff 100%);
+    padding: 24px;
+    border: none;
+    border-radius: 22px;
+    box-shadow: 0 10px 30px rgba(124, 58, 237, 0.1);
+    margin-bottom: 26px;
+}
+
+.avatar {
+    width: 86px;
+    height: 86px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #efe7fb;
+    border: 3px solid #db2777;
+}
+
+.list-item {
+    background: #fff;
+    border: none;
+    border-radius: 18px;
+    padding: 16px;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    margin-bottom: 14px;
+    box-shadow: 0 6px 18px rgba(124, 58, 237, 0.08);
+    transition: transform .15s;
+}
+
+.list-item:hover {
+    transform: translateX(3px);
+}
+
+.list-item img {
+    width: 70px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.list-item .info {
+    flex: 1;
+}
+
+.badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.badge.active {
+    background: #eef9f0;
+    color: #15803d;
+}
+
+.badge.refunded, .badge.cancelled, .badge.withdrawn, .badge.sold {
+    background: #fdecf2;
+    color: #be185d;
+}
+
+.empty {
+    color: #a99cc2;
+    text-align: center;
+    padding: 48px;
+}
+
+/* Модальное окно */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(59, 42, 94, 0.45);
+    z-index: 100;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 40px 16px;
+    overflow: auto;
+}
+
+.modal .modal-card {
+    background: #fff;
+    border: none;
+    border-radius: 24px;
+    max-width: 500px;
+    width: 100%;
+    padding: 28px;
+    box-shadow: 0 24px 60px rgba(124, 58, 237, 0.3);
+}
+
+.modal .modal-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.modal .modal-head h2 {
+    margin: 0;
+}
+
+.modal .close-x {
+    cursor: pointer;
+    color: #9333ea;
+    font-size: 24px;
+    background: none;
+    border: none;
+}

@@ -1,0 +1,429 @@
+/* Variant 1 — Dark Cinema. Изменено только оформление; разметка, классы и логика прежние. */
+
+:root {
+    --bg: #0e0f15;
+    --panel: #1a1c26;
+    --panel-2: #22242f;
+    --line: #2e3140;
+    --text: #eceef5;
+    --muted: #9aa0b4;
+    --gold: #e7b44c;
+    --gold-dark: #c8973a;
+    --red: #e2483f;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: radial-gradient(1200px 600px at 50% -10%, #1c2030 0%, var(--bg) 60%) fixed;
+    color: var(--text);
+    color-scheme: dark;
+}
+
+a {
+    text-decoration: none;
+    color: var(--gold);
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(0.8);
+    cursor: pointer;
+}
+
+/* Меню навигации */
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    background: rgba(14, 15, 21, 0.85);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+    color: var(--text);
+    padding: 14px 28px;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.nav .brand {
+    font-weight: 800;
+    font-size: 21px;
+    letter-spacing: 0.5px;
+    color: var(--gold);
+}
+
+.nav a.link {
+    color: var(--text);
+    opacity: 0.85;
+}
+
+.nav a.link:hover {
+    opacity: 1;
+    color: var(--gold);
+}
+
+.nav .spacer {
+    flex: 1;
+}
+
+.nav .user {
+    font-size: 14px;
+    color: var(--muted);
+}
+
+.container {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 28px 20px;
+}
+
+h1, h2 {
+    margin: 0 0 18px;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+
+/* Кнопки */
+.btn {
+    background: linear-gradient(180deg, var(--gold), var(--gold-dark));
+    color: #1a1300;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    box-shadow: 0 6px 16px rgba(231, 180, 76, 0.18);
+    transition: transform 0.08s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.btn:hover {
+    filter: brightness(1.08);
+    box-shadow: 0 8px 22px rgba(231, 180, 76, 0.28);
+}
+
+.btn:active {
+    transform: translateY(1px);
+}
+
+.btn.secondary {
+    background: var(--panel-2);
+    color: var(--text);
+    border: 1px solid var(--line);
+    box-shadow: none;
+}
+
+.btn.danger {
+    background: linear-gradient(180deg, #e2483f, #bb352d);
+    color: #fff;
+    box-shadow: 0 6px 16px rgba(226, 72, 63, 0.2);
+}
+
+.btn.small {
+    padding: 7px 12px;
+    font-size: 13px;
+}
+
+/* Формы */
+.field {
+    margin-bottom: 14px;
+}
+
+.field label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px 12px;
+    background: var(--panel-2);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: inherit;
+    color: var(--text);
+}
+
+input::placeholder {
+    color: #6b7088;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(231, 180, 76, 0.15);
+}
+
+textarea {
+    min-height: 60px;
+    resize: vertical;
+}
+
+/* Карточки авторизации */
+.auth-card {
+    max-width: 380px;
+    margin: 72px auto;
+    background: var(--panel);
+    padding: 30px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+}
+
+.hint {
+    margin-top: 16px;
+    text-align: center;
+    font-size: 14px;
+    color: var(--muted);
+}
+
+.hint a {
+    color: var(--gold) !important;
+}
+
+/* Сообщения */
+.msg {
+    padding: 9px 12px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    font-size: 14px;
+    display: none;
+}
+
+.msg.error {
+    display: block;
+    background: rgba(226, 72, 63, 0.12);
+    color: #ff8b84;
+    border: 1px solid rgba(226, 72, 63, 0.3);
+}
+
+.msg.success {
+    display: block;
+    background: rgba(231, 180, 76, 0.12);
+    color: var(--gold);
+    border: 1px solid rgba(231, 180, 76, 0.3);
+}
+
+/* Фильтры */
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items: end;
+    background: var(--panel);
+    padding: 18px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    margin-bottom: 24px;
+}
+
+.filters .field {
+    margin: 0;
+    flex: 1;
+    min-width: 140px;
+}
+
+/* Сетка карточек */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 22px;
+}
+
+.card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.15s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5);
+    border-color: rgba(231, 180, 76, 0.4);
+}
+
+.card .poster {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    background: var(--panel-2);
+}
+
+.card .body {
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+
+.card .title {
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.card .meta {
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.tag {
+    background: var(--panel-2);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 3px 10px;
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.price {
+    font-size: 19px;
+    font-weight: 800;
+    color: var(--gold);
+}
+
+.buy-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: auto;
+}
+
+.buy-form .row {
+    display: flex;
+    gap: 8px;
+}
+
+/* Профиль */
+.profile-head {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    background: var(--panel);
+    padding: 20px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    margin-bottom: 24px;
+}
+
+.avatar {
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: var(--panel-2);
+    border: 2px solid var(--gold);
+}
+
+#pLogin {
+    color: var(--muted) !important;
+}
+
+.list-item {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 14px;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.list-item img {
+    width: 70px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.list-item .info {
+    flex: 1;
+}
+
+.badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+}
+
+.badge.active {
+    background: rgba(231, 180, 76, 0.15);
+    color: var(--gold);
+}
+
+.badge.refunded, .badge.cancelled, .badge.withdrawn, .badge.sold {
+    background: rgba(226, 72, 63, 0.15);
+    color: #ff8b84;
+}
+
+.empty {
+    color: var(--muted);
+    text-align: center;
+    padding: 40px;
+}
+
+/* Модальное окно */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 100;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 40px 16px;
+    overflow: auto;
+}
+
+.modal .modal-card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    max-width: 500px;
+    width: 100%;
+    padding: 24px;
+}
+
+.modal .modal-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.modal .modal-head h2 {
+    margin: 0;
+}
+
+.modal .close-x {
+    cursor: pointer;
+    color: var(--muted);
+    font-size: 24px;
+    background: none;
+    border: none;
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Вакансии — HeadHunter</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="vacancies">
+  <nav class="nav">
+    <span class="brand">💼 HeadHunter</span>
+    <a class="link" href="vacancies.html">Вакансии</a>
+    <a class="link" href="profile.html">Мои отклики / Профиль</a>
+    <span class="spacer"></span>
+    <span class="user" id="userName"></span>
+    <a class="link" id="authLink" href="login.html">Войти</a>
+  </nav>
+  <div class="container">
+    <h1>Вакансии</h1>
+    <form class="filters" id="filters">
+      <div class="field">
+        <label>Категория</label>
+        <select name="category">
+          <option value="">Все категории</option>
+          <option value="1">IT</option>
+          <option value="2">Продажи</option>
+          <option value="3">Маркетинг</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Опыт</label>
+        <select name="experience">
+          <option value="">Любой</option>
+          <option value="0">Без опыта</option>
+          <option value="1">От 1 года</option>
+          <option value="3">От 3 лет</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Сортировка по зарплате</label>
+        <select name="sort">
+          <option value="">По умолчанию</option>
+          <option value="salary_asc">По возрастанию</option>
+          <option value="salary_desc">По убыванию</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Поиск</label>
+        <input name="q" placeholder="Название вакансии">
+      </div>
+      <button class="btn" type="submit">Найти</button>
+    </form>
+    <div class="grid" id="grid"></div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
